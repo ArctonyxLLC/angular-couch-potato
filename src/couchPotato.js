@@ -318,7 +318,7 @@
       app.__cp_factory = app.factory;
       app.__cp_service = app.service;
       app.__cp_directive = app.directive;
-      app.__cp_componet = app.component;
+      app.__cp_component = app.component;
       app.__cp_decorator = app.decorator;
       app.__cp_provider = app.provider;
       app.__cp_value = app.value;
@@ -432,7 +432,7 @@
       app.registerFactory = app.factory;
       app.registerService = app.service;
       app.registerDirective = app.directive;
-      app.registerComponet = app.component;
+      app.registerComponent = app.component;
       app.registerDecorator = app.decorator;
       app.registerProvider = app.provider;
       app.registerValue = app.value;
