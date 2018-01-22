@@ -314,104 +314,115 @@
     module.provider('$couchPotato', CouchPotatoProvider);
 
     this.configureApp = function(app) {
-      app.registerController = function(name, controller) {
+      app.__cp_controller = app.controller;
+      app.__cp_factory = app.factory;
+      app.__cp_service = app.service;
+      app.__cp_directive = app.directive;
+      app.__cp_componet = app.component;
+      app.__cp_decorator = app.decorator;
+      app.__cp_provider = app.provider;
+      app.__cp_value = app.value;
+      app.__cp_constant = app.constant;
+      app.__cp_filter = app.filter;
+
+      app.controller = function(name, controller) {
         if (app.lazy) {
           app.lazy.registerController([name, controller]);
         }
         else {
-          app.controller(name, controller);
+          app.__cp_controller(name, controller);
         }
         return app;
       };
 
-      app.registerFactory = function(name, factory) {
+      app.factory = function(name, factory) {
         if (app.lazy) {
           app.lazy.registerFactory([name, factory]);
         }
         else {
-          app.factory(name, factory);
+          app.__cp_factory(name, factory);
         }
         return app;
       };
 
 
-      app.registerService = function(name, service) {
+      app.service = function(name, service) {
         if (app.lazy) {
           app.lazy.registerService([name, service]);
         }
         else {
-          app.service(name, service);
+          app.__cp_service(name, service);
         }
         return app;
       };
 
-      app.registerDirective = function(name, directive) {
+      app.directive = function(name, directive) {
         if (app.lazy) {
           app.lazy.registerDirective([name, directive]);
         }
         else {
-          app.directive(name, directive);
+          app.__cp_directive(name, directive);
         }
         return app;
       };
 
-      app.registerComponent = function(name, component) {
+      app.component = function(name, component) {
         if (app.lazy) {
           app.lazy.registerComponent([name, component]);
         }
         else {
-          app.component(name, component);
+          app.__cp_component(name, component);
         }
         return app;
       };
 
-      app.registerDecorator = function(name, decorator) {
+      app.decorator = function(name, decorator) {
         if (app.lazy) {
           app.lazy.registerDecorator([name, decorator]);
         }
         else {
-          app.decorator(name, decorator);
+          app.__cp_decorator(name, decorator);
         }
         return app;
       };
 
-      app.registerProvider = function(name, provider) {
+      app.provider = function(name, provider) {
         if (app.lazy) {
           app.lazy.registerProvider([name, provider]);
         }
         else {
-          app.provider(name, provider);
+          app.__cp_provider(name, provider);
         }
         return app;
       };
 
-      app.registerValue = function(name, value) {
+      app.value = function(name, value) {
         if (app.lazy) {
           app.lazy.registerValue([name, value]);
         }
         else {
-          app.value(name, value);
+          app.__cp_value(name, value);
         }
         return app;
       };
 
-      app.registerConstant = function(name, value) {
+      app.constant = function(name, value) {
         if (app.lazy) {
           app.lazy.registerConstant([name, value]);
         }
         else {
-          app.constant(name, value);
+          app.__cp_constant(name, value);
         }
         return app;
       };
 
 
-      app.registerFilter = function(name, filter) {
+      app.filter = function(name, filter) {
         if (app.lazy) {
           app.lazy.registerFilter([name, filter]);
         }
         else {
-          app.filter(name, filter);
+          app.__cp_filter(name, filter);
         }
         return app;
       };
