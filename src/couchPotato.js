@@ -427,6 +427,19 @@
         return app;
       };
 
+
+      app.registerController = app.controller;
+      app.registerFactory = app.factory;
+      app.registerService = app.service;
+      app.registerDirective = app.directive;
+      app.registerComponet = app.component;
+      app.registerDecorator = app.decorator;
+      app.registerProvider = app.provider;
+      app.registerValue = app.value;
+      app.registerConstant = app.constant;
+      app.registerFilter = app.filter;
+
+
       /**
        * extendInjectable Prototypically extends an injectable object from
        * another injectable object.  Supports $inject-property-style injections
